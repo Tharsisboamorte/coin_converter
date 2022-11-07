@@ -65,7 +65,15 @@ class _HomeState extends State<Home> {
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
-          title: const Text("\$ Coin Converter \$"),
+        actions: [
+          IconButton(onPressed: (){
+            realController.text = "";
+            dolarController.text = "";
+            euroController.text = "";
+          },
+              icon: const Icon(Icons.refresh,color: Colors.black,))
+        ],
+          title: const Text("\$ Coin Converter \$", style: TextStyle(color: Colors.black)),
         backgroundColor: Colors.amber,
         centerTitle: true,
       ),
@@ -103,7 +111,7 @@ class _HomeState extends State<Home> {
                       Divider(),
                       buildTextField("Dolar", "US\$", dolarController, _dolarChanged),
                       Divider(),
-                      buildTextField("Euro", "€", euroController, _euroChanged)
+                      buildTextField("Euro", "€", euroController, _euroChanged),
                     ],
                   ),
                 );
